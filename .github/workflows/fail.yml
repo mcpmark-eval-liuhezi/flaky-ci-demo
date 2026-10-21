@@ -1,0 +1,15 @@
+name: Deliberately Failing Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fail-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7.0.1
+      - name: Deliberately fail
+        run: |
+          echo "This step is about to exit non-zero on purpose..."
+          exit 1
